@@ -11,13 +11,15 @@ package com.company;
  *
  * @author Amos
  */
-import Eccezioni.*;
+
+import com.company.eccezioni.FullDayException;
+import com.company.eccezioni.SpeakerAlreadyPresentException;
+import com.company.eccezioni.SessionNotPresentException;
+import com.company.eccezioni.DayNotPresentException;
+import com.company.eccezioni.FullSessionException;
 import com.company.view.ClientFrame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-
-import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -76,8 +78,7 @@ public class Client {
     public void createTable(int day) throws DayNotPresentException, RemoteException{
       
             String dayProgram = stub.getDayProgram(day);            
-            String parsedDayProgram[][] = parseDayProgram(dayProgram);
-            printDayProgram(parsedDayProgram);   
+            String parsedDayProgram[][] = parseDayProgram(dayProgram); 
             
             String[] headers = {"","Intervento 1", "Intervento 2", "Intervento 3", "Intervento 4", "Intervento 5"};
                
@@ -128,28 +129,13 @@ public class Client {
             
             String[] splitted = sessioni[i].split(",", -1);
             
-            for (int j = 1; j<splitted.length; j++)
-                interventi[i][j] = splitted[j];
+            for (int j = 0; j<splitted.length; j++)
+                interventi[i][j+1] = splitted[j];
             }
             
       
         return interventi;
-    }
-
-    private static void printDayProgram(String parsedDayProgram[][]){
-        for(int i = 0; i < parsedDayProgram.length; i++){
-            System.out.println("SESSIONE " + (i+1));
-            for (int j = 0; j < parsedDayProgram[i].length; j++) {
-//                if (parsedDayProgram[i][j].equals(""))
-//                    System.out.println("Nessun intervento.");
-            //    else
-                    System.out.println("Intervento #" + (j + 1) + ": " + parsedDayProgram[i][j]);
-            }
-
-        }
-    }
-    
-    
+    }    
      
     private MouseAdapter enrollBtnAction = new MouseAdapter() {
         @Override

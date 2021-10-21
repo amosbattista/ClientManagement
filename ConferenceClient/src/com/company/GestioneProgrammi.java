@@ -10,7 +10,11 @@ package com.company;
  *
  * @author Amos
  */
-import Eccezioni.*;
+import com.company.eccezioni.SessionNotPresentException;
+import com.company.eccezioni.DayNotPresentException;
+import com.company.eccezioni.FullSessionException;
+import com.company.eccezioni.SpeakerAlreadyPresentException;
+import com.company.eccezioni.FullDayException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
