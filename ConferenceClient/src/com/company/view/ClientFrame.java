@@ -5,9 +5,14 @@
  */
 package com.company.view;
 
+import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -21,6 +26,43 @@ public class ClientFrame extends javax.swing.JFrame {
     public ClientFrame() {
         initComponents();
         setResizable(false);
+        
+       
+        
+      
+        
+    }
+    
+      public static void setCellsAlignment(JTable table, int alignment)
+    {
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(alignment);
+
+        TableModel tableModel = table.getModel();
+
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
+        }
+    }
+      
+    public static void setGreyColumn(JTable table){
+        
+        table.getColumn(table.getColumnName(0)).setCellRenderer(
+         new DefaultTableCellRenderer() {
+            public Component getTableCellRendererComponent(JTable table, 
+                                                           Object value, 
+                                                           boolean isSelected, 
+                                                           boolean hasFocus, 
+                                                           int row, 
+                                                           int column) {
+                setText(value.toString());
+                setHorizontalAlignment( JLabel.CENTER );
+               
+                setBackground(new Color(238,238,238));
+                return this;
+            }
+        });
     }
 
     public JTable getjTableConf() {
@@ -179,13 +221,13 @@ public class ClientFrame extends javax.swing.JFrame {
                     .addComponent(sessionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enrollBtn))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dayUpTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateBtn))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
