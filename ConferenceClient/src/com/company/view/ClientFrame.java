@@ -121,21 +121,18 @@ public class ClientFrame extends javax.swing.JFrame {
 
         jLabel3.setText("Nome ");
 
-        dayUpTextField.setText("1");
         dayUpTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dayUpTextFieldActionPerformed(evt);
             }
         });
 
-        sessionTextField.setText("1");
         sessionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sessionTextFieldActionPerformed(evt);
             }
         });
 
-        nameTextField.setText("Pippo");
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextFieldActionPerformed(evt);
@@ -162,7 +159,6 @@ public class ClientFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Giorno");
 
-        dayEnrTextField.setText("1");
         dayEnrTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dayEnrTextFieldActionPerformed(evt);

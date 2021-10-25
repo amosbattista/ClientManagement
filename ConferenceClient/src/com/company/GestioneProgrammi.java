@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.eccezioni.DayNotPresentException;
-import com.company.eccezioni.FullSessionException;
-import com.company.eccezioni.SessionNotPresentException;
-import com.company.eccezioni.SpeakerAlreadyPresentException;
+import com.company.eccezioni.*;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -17,7 +14,7 @@ public interface GestioneProgrammi extends Remote {
 
     void enroll(String speakerName, int day, int session) throws SpeakerAlreadyPresentException,
             DayNotPresentException,
-            SessionNotPresentException, FullSessionException, RemoteException;
+            SessionNotPresentException, FullSessionException, RemoteException, SpeakerIsNotAlphaNumericException;
 
 
 }

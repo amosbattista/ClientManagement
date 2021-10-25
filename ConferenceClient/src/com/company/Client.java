@@ -113,6 +113,10 @@ public class Client {
              
              JOptionPane.showMessageDialog(null,  "Registrazione effettuata", 
                 "Info",     JOptionPane.INFORMATION_MESSAGE);
+             
+             dayEnrollTextField.setText("");
+             sessionTextField.setText("");
+             nameTextField.setText("");
                 
              
             }
@@ -133,10 +137,15 @@ public class Client {
             } catch (FullSessionException ex) {
                  JOptionPane.showMessageDialog(null,  "Sessione già piena!",
                 "Errore",     JOptionPane.ERROR_MESSAGE);
-            } catch (RemoteException ex) {
+            } catch (SpeakerIsNotAlphaNumericException ex) {
+                JOptionPane.showMessageDialog(null,  "Nome non valido!",
+                "Errore",     JOptionPane.ERROR_MESSAGE);
+            }     
+             catch (RemoteException ex) {
                  JOptionPane.showMessageDialog(null,  "Errore di rete!",
                 "Errore",     JOptionPane.ERROR_MESSAGE);
-            }
+                }
+            
             
             
         }
@@ -156,6 +165,7 @@ public class Client {
                 createTable(day);
                 JOptionPane.showMessageDialog(null,  "Aggiornamento effettuato", 
                 "Info",     JOptionPane.INFORMATION_MESSAGE);
+                dayUpdateTextField.setText("");
                 
             } catch (DayNotPresentException | RemoteException | NumberFormatException ex) {
                JOptionPane.showMessageDialog(null,  "Giorno non ammesso. Scegli un giorno compreso tra 1 e 3.", 
@@ -233,6 +243,7 @@ public class Client {
         //operazioni grafiche
         mainFrame.setCellsAlignment(table, SwingConstants.CENTER);
         mainFrame.setGreyColumn(table);
+        
 
 
 
