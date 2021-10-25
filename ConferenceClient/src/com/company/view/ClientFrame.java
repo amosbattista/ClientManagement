@@ -15,8 +15,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
 /**
- *
- * @author Amos
+ * Definisce i componenti grafici dell'interfaccia grafica del Client.
  */
 public class ClientFrame extends javax.swing.JFrame {
 
@@ -26,11 +25,7 @@ public class ClientFrame extends javax.swing.JFrame {
     public ClientFrame() {
         initComponents();
         setResizable(false);
-        
-       
-        
-      
-        
+
     }
     
       public static void setCellsAlignment(JTable table, int alignment)
@@ -68,8 +63,6 @@ public class ClientFrame extends javax.swing.JFrame {
     public JTable getjTableConf() {
         return jTableConf;
     }
-    
-    
 
     public JTextField getDayEnrTextField() {
         return dayEnrTextField;
